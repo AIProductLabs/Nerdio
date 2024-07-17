@@ -33,17 +33,10 @@ Invoke-WebRequest -Uri $AwsVpnClientUrl -OutFile "C:\Windows\Temp\awsvpnclient\i
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 cd "C:\Windows\Temp\awsvpnclient\install\"
 
-$Dir = Get-ChildItem C:\Windows\Temp\awsvpnclient\install\ | Where-Object PSIsContainer -eq $true
-if ($Dir.Count -gt 1) {
-    $Dir = Get-ChildItem C:\Windows\Temp\awsvpnclient\ | Where-Object PSIsContainer -eq $true
-}
 
 # Install AWS VPN Client. 
 Write-Host "INFO: Installing AWS VPN Client. . ."
-Start-Process "$($Dir.FullName)\AWS_VPN_Client.msi" `
-    -ArgumentList "ALLUSERS=1 /qn /norestart" `
-    -Wait `
-    -Passthru `
+Start-Process "C:\Windows\Temp\awsvpnclient\install\AWS_VPN_Client.msi" -ArgumentList "ALLUSERS=1 /qn /norestart" -Wait -Passthru
   
 
 
