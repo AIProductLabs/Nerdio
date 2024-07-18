@@ -1,7 +1,7 @@
 #description: Downloads and installs AWS VPN Client on the session hosts
 #Written by Jason Sears
 #No warranties given for this script
-#execution mode: IndividualWithRestart
+#execution mode: Combined
 #tags: Nerdio, Apps install, AWS VPN Client
 <# 
 Notes:
